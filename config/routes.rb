@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the University resource:
+
+  # CREATE
+  post("/insert_university", { :controller => "universities", :action => "create" })
+          
+  # READ
+  get("/universities", { :controller => "universities", :action => "index" })
+  
+  get("/universities/:path_id", { :controller => "universities", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_university/:path_id", { :controller => "universities", :action => "update" })
+  
+  # DELETE
+  get("/delete_university/:path_id", { :controller => "universities", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the University type resource:
 
   # CREATE

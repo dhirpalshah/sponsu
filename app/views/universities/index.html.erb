@@ -1,0 +1,166 @@
+<div>
+  <div>
+    <h1>
+      List of all universities
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new university
+    </h2>
+
+    <form action="/insert_university" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location">
+      </div>
+
+      <div>
+        <label for="type_id_box">
+          Type
+        </label>
+
+        <input type="text" id="type_id_box" name="query_type_id">
+      </div>
+
+      <div>
+        <label for="population_box">
+          Population
+        </label>
+
+        <input type="text" id="population_box" name="query_population">
+      </div>
+
+      <div>
+        <label for="region_box">
+          Region
+        </label>
+
+        <input type="text" id="region_box" name="query_region">
+      </div>
+
+      <div>
+        <label for="students_count_box">
+          Students count
+        </label>
+
+        <input type="text" id="students_count_box" name="query_students_count">
+      </div>
+
+      <button>
+        Create university
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Type
+        </th>
+
+        <th>
+          Population
+        </th>
+
+        <th>
+          Region
+        </th>
+
+        <th>
+          Students count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_universities.each do |a_university| %>
+      <tr>
+        <td>
+          <%= a_university.id %>
+        </td>
+
+        <td>
+          <%= a_university.name %>
+        </td>
+
+        <td>
+          <%= a_university.location %>
+        </td>
+
+        <td>
+          <%= a_university.type_id %>
+        </td>
+
+        <td>
+          <%= a_university.population %>
+        </td>
+
+        <td>
+          <%= a_university.region %>
+        </td>
+
+        <td>
+          <%= a_university.students_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_university.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_university.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/universities/<%= a_university.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
