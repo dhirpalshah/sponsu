@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Interest #<%= @the_interest.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/interests">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_interest/<%= @the_interest.id %>">
+          Delete interest
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Interest name
+      </dt>
+      <dd>
+        <%= @the_interest.interest_name %>
+      </dd>
+
+      <dt>
+        Student to interests count
+      </dt>
+      <dd>
+        <%= @the_interest.student_to_interests_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_interest.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_interest.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit interest
+    </h2>
+
+    <form action="/modify_interest/<%= @the_interest.id %>"  method="post" >
+      <div>
+        <label for="interest_name_box">
+          Interest name
+        </label>
+
+        <input type="text" id="interest_name_box" name="query_interest_name" value="<%= @the_interest.interest_name %>">
+      </div>
+
+      <div>
+        <label for="student_to_interests_count_box">
+          Student to interests count
+        </label>
+
+        <input type="text" id="student_to_interests_count_box" name="query_student_to_interests_count" value="<%= @the_interest.student_to_interests_count %>">
+      </div>
+
+      <button>
+        Update interest
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

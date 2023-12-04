@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all university types
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new university type
+    </h2>
+
+    <form action="/insert_university_type" method="post">
+      <div>
+        <label for="type_name_box">
+          Type name
+        </label>
+
+        <input type="text" id="type_name_box" name="query_type_name">
+      </div>
+
+      <div>
+        <label for="university_ids_count_box">
+          University ids count
+        </label>
+
+        <input type="text" id="university_ids_count_box" name="query_university_ids_count">
+      </div>
+
+      <button>
+        Create university type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Type name
+        </th>
+
+        <th>
+          University ids count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_university_types.each do |a_university_type| %>
+      <tr>
+        <td>
+          <%= a_university_type.id %>
+        </td>
+
+        <td>
+          <%= a_university_type.type_name %>
+        </td>
+
+        <td>
+          <%= a_university_type.university_ids_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_university_type.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_university_type.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/university_types/<%= a_university_type.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

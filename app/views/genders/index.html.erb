@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all genders
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new gender
+    </h2>
+
+    <form action="/insert_gender" method="post">
+      <div>
+        <label for="gender_name_box">
+          Gender name
+        </label>
+
+        <input type="text" id="gender_name_box" name="query_gender_name">
+      </div>
+
+      <div>
+        <label for="students_count_box">
+          Students count
+        </label>
+
+        <input type="text" id="students_count_box" name="query_students_count">
+      </div>
+
+      <button>
+        Create gender
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Gender name
+        </th>
+
+        <th>
+          Students count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_genders.each do |a_gender| %>
+      <tr>
+        <td>
+          <%= a_gender.id %>
+        </td>
+
+        <td>
+          <%= a_gender.gender_name %>
+        </td>
+
+        <td>
+          <%= a_gender.students_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_gender.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_gender.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/genders/<%= a_gender.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

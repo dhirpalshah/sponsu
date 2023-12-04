@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Student to interest #<%= @the_student_to_interest.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/student_to_interests">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_student_to_interest/<%= @the_student_to_interest.id %>">
+          Delete student to interest
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Student
+      </dt>
+      <dd>
+        <%= @the_student_to_interest.student_id %>
+      </dd>
+
+      <dt>
+        Interest
+      </dt>
+      <dd>
+        <%= @the_student_to_interest.interest_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_student_to_interest.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_student_to_interest.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit student to interest
+    </h2>
+
+    <form action="/modify_student_to_interest/<%= @the_student_to_interest.id %>"  method="post" >
+      <div>
+        <label for="student_id_box">
+          Student
+        </label>
+
+        <input type="text" id="student_id_box" name="query_student_id" value="<%= @the_student_to_interest.student_id %>">
+      </div>
+
+      <div>
+        <label for="interest_id_box">
+          Interest
+        </label>
+
+        <input type="text" id="interest_id_box" name="query_interest_id" value="<%= @the_student_to_interest.interest_id %>">
+      </div>
+
+      <button>
+        Update student to interest
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

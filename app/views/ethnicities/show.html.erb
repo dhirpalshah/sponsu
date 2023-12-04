@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Ethnicity #<%= @the_ethnicity.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/ethnicities">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_ethnicity/<%= @the_ethnicity.id %>">
+          Delete ethnicity
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Ethnicity name
+      </dt>
+      <dd>
+        <%= @the_ethnicity.ethnicity_name %>
+      </dd>
+
+      <dt>
+        Student to ethnicities count
+      </dt>
+      <dd>
+        <%= @the_ethnicity.student_to_ethnicities_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_ethnicity.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_ethnicity.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit ethnicity
+    </h2>
+
+    <form action="/modify_ethnicity/<%= @the_ethnicity.id %>"  method="post" >
+      <div>
+        <label for="ethnicity_name_box">
+          Ethnicity name
+        </label>
+
+        <input type="text" id="ethnicity_name_box" name="query_ethnicity_name" value="<%= @the_ethnicity.ethnicity_name %>">
+      </div>
+
+      <div>
+        <label for="student_to_ethnicities_count_box">
+          Student to ethnicities count
+        </label>
+
+        <input type="text" id="student_to_ethnicities_count_box" name="query_student_to_ethnicities_count" value="<%= @the_ethnicity.student_to_ethnicities_count %>">
+      </div>
+
+      <button>
+        Update ethnicity
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      University type #<%= @the_university_type.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/university_types">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_university_type/<%= @the_university_type.id %>">
+          Delete university type
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Type name
+      </dt>
+      <dd>
+        <%= @the_university_type.type_name %>
+      </dd>
+
+      <dt>
+        University ids count
+      </dt>
+      <dd>
+        <%= @the_university_type.university_ids_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_university_type.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_university_type.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit university type
+    </h2>
+
+    <form action="/modify_university_type/<%= @the_university_type.id %>"  method="post" >
+      <div>
+        <label for="type_name_box">
+          Type name
+        </label>
+
+        <input type="text" id="type_name_box" name="query_type_name" value="<%= @the_university_type.type_name %>">
+      </div>
+
+      <div>
+        <label for="university_ids_count_box">
+          University ids count
+        </label>
+
+        <input type="text" id="university_ids_count_box" name="query_university_ids_count" value="<%= @the_university_type.university_ids_count %>">
+      </div>
+
+      <button>
+        Update university type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all student to interests
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new student to interest
+    </h2>
+
+    <form action="/insert_student_to_interest" method="post">
+      <div>
+        <label for="student_id_box">
+          Student
+        </label>
+
+        <input type="text" id="student_id_box" name="query_student_id">
+      </div>
+
+      <div>
+        <label for="interest_id_box">
+          Interest
+        </label>
+
+        <input type="text" id="interest_id_box" name="query_interest_id">
+      </div>
+
+      <button>
+        Create student to interest
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Student
+        </th>
+
+        <th>
+          Interest
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_student_to_interests.each do |a_student_to_interest| %>
+      <tr>
+        <td>
+          <%= a_student_to_interest.id %>
+        </td>
+
+        <td>
+          <%= a_student_to_interest.student_id %>
+        </td>
+
+        <td>
+          <%= a_student_to_interest.interest_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_student_to_interest.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_student_to_interest.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/student_to_interests/<%= a_student_to_interest.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

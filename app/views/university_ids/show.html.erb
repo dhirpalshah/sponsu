@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      University #<%= @the_university_id.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/university_ids">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_university_id/<%= @the_university_id.id %>">
+          Delete university
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_university_id.name %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_university_id.location %>
+      </dd>
+
+      <dt>
+        Type
+      </dt>
+      <dd>
+        <%= @the_university_id.type_id %>
+      </dd>
+
+      <dt>
+        Population
+      </dt>
+      <dd>
+        <%= @the_university_id.population %>
+      </dd>
+
+      <dt>
+        Region
+      </dt>
+      <dd>
+        <%= @the_university_id.region %>
+      </dd>
+
+      <dt>
+        Students count
+      </dt>
+      <dd>
+        <%= @the_university_id.students_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_university_id.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_university_id.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit university
+    </h2>
+
+    <form action="/modify_university_id/<%= @the_university_id.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_university_id.name %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_university_id.location %>">
+      </div>
+
+      <div>
+        <label for="type_id_box">
+          Type
+        </label>
+
+        <input type="text" id="type_id_box" name="query_type_id" value="<%= @the_university_id.type_id %>">
+      </div>
+
+      <div>
+        <label for="population_box">
+          Population
+        </label>
+
+        <input type="text" id="population_box" name="query_population" value="<%= @the_university_id.population %>">
+      </div>
+
+      <div>
+        <label for="region_box">
+          Region
+        </label>
+
+        <input type="text" id="region_box" name="query_region" value="<%= @the_university_id.region %>">
+      </div>
+
+      <div>
+        <label for="students_count_box">
+          Students count
+        </label>
+
+        <input type="text" id="students_count_box" name="query_students_count" value="<%= @the_university_id.students_count %>">
+      </div>
+
+      <button>
+        Update university
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

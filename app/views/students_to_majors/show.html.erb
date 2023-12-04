@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Students to major #<%= @the_students_to_major.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/students_to_majors">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_students_to_major/<%= @the_students_to_major.id %>">
+          Delete students to major
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Student
+      </dt>
+      <dd>
+        <%= @the_students_to_major.student_id %>
+      </dd>
+
+      <dt>
+        Major
+      </dt>
+      <dd>
+        <%= @the_students_to_major.major_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_students_to_major.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_students_to_major.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit students to major
+    </h2>
+
+    <form action="/modify_students_to_major/<%= @the_students_to_major.id %>"  method="post" >
+      <div>
+        <label for="student_id_box">
+          Student
+        </label>
+
+        <input type="text" id="student_id_box" name="query_student_id" value="<%= @the_students_to_major.student_id %>">
+      </div>
+
+      <div>
+        <label for="major_id_box">
+          Major
+        </label>
+
+        <input type="text" id="major_id_box" name="query_major_id" value="<%= @the_students_to_major.major_id %>">
+      </div>
+
+      <button>
+        Update students to major
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

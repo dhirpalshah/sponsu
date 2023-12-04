@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Socialmedium #<%= @the_socialmedium.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/socialmedia">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_socialmedium/<%= @the_socialmedium.id %>">
+          Delete socialmedium
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Socialmedia name
+      </dt>
+      <dd>
+        <%= @the_socialmedium.socialmedia_name %>
+      </dd>
+
+      <dt>
+        Students to socials count
+      </dt>
+      <dd>
+        <%= @the_socialmedium.students_to_socials_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_socialmedium.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_socialmedium.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit socialmedium
+    </h2>
+
+    <form action="/modify_socialmedium/<%= @the_socialmedium.id %>"  method="post" >
+      <div>
+        <label for="socialmedia_name_box">
+          Socialmedia name
+        </label>
+
+        <input type="text" id="socialmedia_name_box" name="query_socialmedia_name" value="<%= @the_socialmedium.socialmedia_name %>">
+      </div>
+
+      <div>
+        <label for="students_to_socials_count_box">
+          Students to socials count
+        </label>
+
+        <input type="text" id="students_to_socials_count_box" name="query_students_to_socials_count" value="<%= @the_socialmedium.students_to_socials_count %>">
+      </div>
+
+      <button>
+        Update socialmedium
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

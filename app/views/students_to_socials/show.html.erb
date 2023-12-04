@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Students to social #<%= @the_students_to_social.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/students_to_socials">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_students_to_social/<%= @the_students_to_social.id %>">
+          Delete students to social
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Student
+      </dt>
+      <dd>
+        <%= @the_students_to_social.student_id %>
+      </dd>
+
+      <dt>
+        Socialmedia
+      </dt>
+      <dd>
+        <%= @the_students_to_social.socialmedia_id %>
+      </dd>
+
+      <dt>
+        Socialmedia url
+      </dt>
+      <dd>
+        <%= @the_students_to_social.socialmedia_url %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_students_to_social.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_students_to_social.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit students to social
+    </h2>
+
+    <form action="/modify_students_to_social/<%= @the_students_to_social.id %>"  method="post" >
+      <div>
+        <label for="student_id_box">
+          Student
+        </label>
+
+        <input type="text" id="student_id_box" name="query_student_id" value="<%= @the_students_to_social.student_id %>">
+      </div>
+
+      <div>
+        <label for="socialmedia_id_box">
+          Socialmedia
+        </label>
+
+        <input type="text" id="socialmedia_id_box" name="query_socialmedia_id" value="<%= @the_students_to_social.socialmedia_id %>">
+      </div>
+
+      <div>
+        <label for="socialmedia_url_box">
+          Socialmedia url
+        </label>
+
+        <input type="text" id="socialmedia_url_box" name="query_socialmedia_url" value="<%= @the_students_to_social.socialmedia_url %>">
+      </div>
+
+      <button>
+        Update students to social
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

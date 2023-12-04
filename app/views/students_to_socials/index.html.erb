@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all students to socials
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new students to social
+    </h2>
+
+    <form action="/insert_students_to_social" method="post">
+      <div>
+        <label for="student_id_box">
+          Student
+        </label>
+
+        <input type="text" id="student_id_box" name="query_student_id">
+      </div>
+
+      <div>
+        <label for="socialmedia_id_box">
+          Socialmedia
+        </label>
+
+        <input type="text" id="socialmedia_id_box" name="query_socialmedia_id">
+      </div>
+
+      <div>
+        <label for="socialmedia_url_box">
+          Socialmedia url
+        </label>
+
+        <input type="text" id="socialmedia_url_box" name="query_socialmedia_url">
+      </div>
+
+      <button>
+        Create students to social
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Student
+        </th>
+
+        <th>
+          Socialmedia
+        </th>
+
+        <th>
+          Socialmedia url
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_students_to_socials.each do |a_students_to_social| %>
+      <tr>
+        <td>
+          <%= a_students_to_social.id %>
+        </td>
+
+        <td>
+          <%= a_students_to_social.student_id %>
+        </td>
+
+        <td>
+          <%= a_students_to_social.socialmedia_id %>
+        </td>
+
+        <td>
+          <%= a_students_to_social.socialmedia_url %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_students_to_social.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_students_to_social.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/students_to_socials/<%= a_students_to_social.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

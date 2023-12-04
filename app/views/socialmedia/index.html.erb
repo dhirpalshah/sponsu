@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all socialmedia
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new socialmedium
+    </h2>
+
+    <form action="/insert_socialmedium" method="post">
+      <div>
+        <label for="socialmedia_name_box">
+          Socialmedia name
+        </label>
+
+        <input type="text" id="socialmedia_name_box" name="query_socialmedia_name">
+      </div>
+
+      <div>
+        <label for="students_to_socials_count_box">
+          Students to socials count
+        </label>
+
+        <input type="text" id="students_to_socials_count_box" name="query_students_to_socials_count">
+      </div>
+
+      <button>
+        Create socialmedium
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Socialmedia name
+        </th>
+
+        <th>
+          Students to socials count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_socialmedia.each do |a_socialmedium| %>
+      <tr>
+        <td>
+          <%= a_socialmedium.id %>
+        </td>
+
+        <td>
+          <%= a_socialmedium.socialmedia_name %>
+        </td>
+
+        <td>
+          <%= a_socialmedium.students_to_socials_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_socialmedium.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_socialmedium.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/socialmedia/<%= a_socialmedium.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all students to majors
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new students to major
+    </h2>
+
+    <form action="/insert_students_to_major" method="post">
+      <div>
+        <label for="student_id_box">
+          Student
+        </label>
+
+        <input type="text" id="student_id_box" name="query_student_id">
+      </div>
+
+      <div>
+        <label for="major_id_box">
+          Major
+        </label>
+
+        <input type="text" id="major_id_box" name="query_major_id">
+      </div>
+
+      <button>
+        Create students to major
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Student
+        </th>
+
+        <th>
+          Major
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_students_to_majors.each do |a_students_to_major| %>
+      <tr>
+        <td>
+          <%= a_students_to_major.id %>
+        </td>
+
+        <td>
+          <%= a_students_to_major.student_id %>
+        </td>
+
+        <td>
+          <%= a_students_to_major.major_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_students_to_major.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_students_to_major.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/students_to_majors/<%= a_students_to_major.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

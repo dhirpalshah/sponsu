@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Gender #<%= @the_gender.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/genders">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_gender/<%= @the_gender.id %>">
+          Delete gender
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Gender name
+      </dt>
+      <dd>
+        <%= @the_gender.gender_name %>
+      </dd>
+
+      <dt>
+        Students count
+      </dt>
+      <dd>
+        <%= @the_gender.students_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_gender.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_gender.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit gender
+    </h2>
+
+    <form action="/modify_gender/<%= @the_gender.id %>"  method="post" >
+      <div>
+        <label for="gender_name_box">
+          Gender name
+        </label>
+
+        <input type="text" id="gender_name_box" name="query_gender_name" value="<%= @the_gender.gender_name %>">
+      </div>
+
+      <div>
+        <label for="students_count_box">
+          Students count
+        </label>
+
+        <input type="text" id="students_count_box" name="query_students_count" value="<%= @the_gender.students_count %>">
+      </div>
+
+      <button>
+        Update gender
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
