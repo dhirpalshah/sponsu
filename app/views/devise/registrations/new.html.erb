@@ -25,43 +25,13 @@
 
   <div class="field">
     <%= f.label :gender %><br />
-    <input list="genders" placeholder="Start typing...">
-    <datalist id="genders">
-      <option>Male</option>
-      <option>Female</option>
-      <option>Other</option>
-    </datalist>
+    <%= f.collection_select :gender_id, Gender.all, :id, :gender_name %>
+    <%#= f.collection_select :gender_id, Gender.all, :id, :gender_name %>
   </div>
 
   <div class="field">
     <%= f.label :university %><br />
-    <input list="universities" placeholder="Start typing...">
-    <datalist id="universities">
-      <% universities = {
-        'Princeton University': 1,
-        'Harvard University': 2,
-        'University of Chicago': 3,
-        'Yale University': 4,
-        'Columbia University': 5,
-        'Stanford University': 6,
-        'Massachusetts Institute of Technology': 7,
-        'Duke University': 8,
-        'University of Pennsylvania': 9,
-        'Johns Hopkins University': 10,
-        'Dartmouth College': 11,
-        'California Institute of Technology': 12,
-        'Northwestern University': 13,
-        'Brown University': 14,
-        'Cornell University': 15,
-        'Rice University': 16,
-        'University of Notre Dame': 17,
-        'Vanderbilt University': 18,
-        'Washington University in St. Louis': 19
-      } %>
-      <% universities.keys.each do |university| %>
-        <option><%= university %></option>
-      <% end %>
-    </datalist>
+    <%= f.collection_select :university_id, UniversityId.all, :id, :name %>
   </div>
 
   <div class="actions">

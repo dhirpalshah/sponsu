@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   skip_forgery_protection
   GENDER_MAP = {
-    'male' => 0,
-    'female' => 1,
-    'other' => 2
+    'Male' => 0,
+    'Female' => 1,
+    'Other' => 2
   }.freeze
 
   UNIVERSITY_MAP= {
@@ -33,10 +33,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :gender, :university])
+    devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :gender_id, :university_id])
     if params[:student].present?
       params[:student][:gender] = map_gender_to_integer(params[:student][:gender]) if params[:student][:gender].present?
-      params[:student][:university] = map_gender_to_integer(params[:student][:university]) if params[:student][:university].present?
+      params[:student][:university] = map_university_to_id(params[:student][:university]) if params[:student][:university].present?
     end
 
     devise_parameter_sanitizer.permit(:account_update)

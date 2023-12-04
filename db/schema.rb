@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_03_035013) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_04_213923) do
   create_table "ethnicities", force: :cascade do |t|
     t.string "ethnicity_name"
     t.integer "student_to_ethnicities_count"
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_03_035013) do
   end
 
   create_table "genders", force: :cascade do |t|
-    t.integer "gender_name"
+    t.text "gender_name"
     t.integer "students_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
