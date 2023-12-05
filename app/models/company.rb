@@ -12,6 +12,6 @@
 #  updated_at              :datetime         not null
 #
 class Company < ApplicationRecord
-  has_many  :company_employees, class_name: "CompanyEmployee", foreign_key: "address", dependent: :destroy
+  has_many :company_employees, :class_name => "CompanyEmployee", :foreign_key => "company_id", :dependent => :destroy
 
 end
