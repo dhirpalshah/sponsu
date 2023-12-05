@@ -31,7 +31,7 @@
 
   <div class="field">
     <%= f.label :university %><br />
-    <%= f.collection_select :university_id, UniversityId.all, :id, :name %>
+    <%= f.collection_select :university_id, University.all, :id, :name %>
   </div>
 
   <div class="actions">

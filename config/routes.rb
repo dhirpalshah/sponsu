@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # todo: landing page for routes
+  # get("/", {})
   # Routes for the University resource:
 
   # CREATE

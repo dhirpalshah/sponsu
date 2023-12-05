@@ -38,7 +38,7 @@ class Student < ApplicationRecord
   has_many  :student_to_ethnicities, class_name: "StudentToEthnicity", foreign_key: "student_id", dependent: :destroy
   has_many  :students_to_majors, class_name: "StudentsToMajor", foreign_key: "student_id", dependent: :destroy
   belongs_to :gender, required: true, class_name: "Gender", foreign_key: "gender_id", counter_cache: true
-  belongs_to :university, required: true, class_name: "UniversityId", foreign_key: "university_id", counter_cache: true
+  belongs_to :university, required: true, class_name: "University", foreign_key: "university_id", counter_cache: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
