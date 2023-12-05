@@ -1,4 +1,29 @@
 Rails.application.routes.draw do
+  # Routes for the Company resource:
+
+  # CREATE
+  post("/insert_company", { :controller => "companies", :action => "create" })
+          
+  # READ
+  get("/companies", { :controller => "companies", :action => "index" })
+  
+  get("/companies/:path_id", { :controller => "companies", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_company/:path_id", { :controller => "companies", :action => "update" })
+  
+  # DELETE
+  get("/delete_company/:path_id", { :controller => "companies", :action => "destroy" })
+
+  #------------------------------
+
+  devise_for :company_employees
+  devise_scope :company_employee do
+    get 'company_employees/login', to: 'company_employees/sessions#new', as: 'company_employee_login'
+  end
+  
+
   # todo: landing page for routes
   # get("/", {})
   # Routes for the University resource:
