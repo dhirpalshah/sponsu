@@ -1,0 +1,65 @@
+<!-- app/views/company_employees/dashboard.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Company Employee Dashboard</title>
+  <!-- Add your stylesheets, meta tags, and other head content here -->
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to the Company Employee Dashboard</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><%= link_to 'Profile', edit_company_employee_registration_path %></li>
+      <li><%= link_to 'Logout', destroy_company_employee_session_path, method: :delete %></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Your main content goes here -->
+    <h1> Student Prospects </h1> 
+    <%#= form_with(url: company_employees_login_path, method: :get) do |f| %>
+<!--      <div>
+        <strong>Choose Columns to Filter:</strong>
+        <br>
+        <%#= f.label :name %> -->
+        <%#= f.check_box :name %>
+<!--        -->
+        <%#= f.label :age %>
+        <%#= f.check_box :age %>
+<!--        -->
+        <%#= f.label :grade %>
+        <%#= f.check_box :grade %>
+<!---->
+        <%#= f.submit %>
+<!--      </div>-->
+    <%# end %>
+
+
+    <table> 
+      <tbody> 
+        <% @students.each do |student| %>
+          <tr> 
+            <td><%= student.name %></td>
+            <!--<td><%#= student.university%></td>--> 
+            <!-- Have to configure Univeristy and Major with their tables --> 
+            
+            <td><%= student.graduating_year %></td>
+            <td><%= student.bio %></td>
+            <td><%= student.email %></td>
+          </tr> 
+        <% end %> 
+      </tbody>
+    </table> 
+    <p>This is the dashboard content for company employees.</p>
+  </main>
+
+  <footer>
+    <!-- Add footer content if needed -->
+  </footer>
+
+</body>
+</html>
