@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Company #<%= @the_company.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/companies">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_company/<%= @the_company.id %>">
+          Delete company
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Company name
+      </dt>
+      <dd>
+        <%= @the_company.company_name %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_company.location %>
+      </dd>
+
+      <dt>
+        Sector
+      </dt>
+      <dd>
+        <%= @the_company.sector %>
+      </dd>
+
+      <dt>
+        Num employees
+      </dt>
+      <dd>
+        <%= @the_company.num_employees %>
+      </dd>
+
+      <dt>
+        Company employees count
+      </dt>
+      <dd>
+        <%= @the_company.company_employees_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_company.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_company.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit company
+    </h2>
+
+    <form action="/modify_company/<%= @the_company.id %>"  method="post" >
+      <div>
+        <label for="company_name_box">
+          Company name
+        </label>
+
+        <input type="text" id="company_name_box" name="query_company_name" value="<%= @the_company.company_name %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_company.location %>">
+      </div>
+
+      <div>
+        <label for="sector_box">
+          Sector
+        </label>
+
+        <input type="text" id="sector_box" name="query_sector" value="<%= @the_company.sector %>">
+      </div>
+
+      <div>
+        <label for="num_employees_box">
+          Num employees
+        </label>
+
+        <input type="text" id="num_employees_box" name="query_num_employees" value="<%= @the_company.num_employees %>">
+      </div>
+
+      <div>
+        <label for="company_employees_count_box">
+          Company employees count
+        </label>
+
+        <input type="text" id="company_employees_count_box" name="query_company_employees_count" value="<%= @the_company.company_employees_count %>">
+      </div>
+
+      <button>
+        Update company
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

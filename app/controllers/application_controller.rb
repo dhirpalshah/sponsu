@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_student!, :unless => :devise_controller?
   # make sure to include before_action :authenticate_company_employee!, :unless => :devise_controller?
+  before_action :authenticate_company_employee!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # determines the path for students and company employees after signin
@@ -42,14 +43,24 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :gender_id, :university_id])
-    if params[:student].present?
-      params[:student][:gender] = map_gender_to_integer(params[:student][:gender]) if params[:student][:gender].present?
-      params[:student][:university] = map_university_to_id(params[:student][:university]) if params[:student][:university].present?
-    end
+  def configure_company_employee_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :company_id])
 
     devise_parameter_sanitizer.permit(:account_update)
+  end
+
+  def configure_permitted_parameters
+    if resource_class == CompanyEmployee 
+      configure_company_employee_permitted_parameters
+    elsif resource_class == Student
+      devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :gender_id, :university_id])
+      if params[:student].present?
+        params[:student][:gender] = map_gender_to_integer(params[:student][:gender]) if params[:student][:gender].present?
+        params[:student][:university] = map_university_to_id(params[:student][:university]) if params[:student][:university].present?
+      end
+
+      devise_parameter_sanitizer.permit(:account_update)
+    end
 
   end
 
