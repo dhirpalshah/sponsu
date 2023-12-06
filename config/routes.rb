@@ -19,10 +19,14 @@ Rails.application.routes.draw do
   #------------------------------
 
   devise_for :company_employees
+
   devise_scope :company_employee do
     get 'company_employees/login', to: 'company_employees/sessions#new', as: 'company_employee_login'
   end
-  
+
+  authenticated :company_employee do 
+    root 'company_employees/employee_portal#dashboard', as: :company_employee_dashboard 
+  end  
 
   # todo: landing page for routes
   # get("/", {})
