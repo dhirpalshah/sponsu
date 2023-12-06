@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   authenticated :company_employee do 
-    root 'company_employees/employee_portal#dashboard', as: :company_employee_dashboard 
+    root to: 'company_employees/employee_portal#dashboard', as: :authenticated_company_employee_root
   end  
 
   # todo: landing page for routes
