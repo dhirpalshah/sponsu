@@ -29,8 +29,18 @@ class ApplicationController < ActionController::Base
     'Washington University in St. Louis': 19
   }.freeze
 
-  before_action :authenticate_student!
+  before_action :authenticate_student!, :unless => :devise_controller?
+  # make sure to include before_action :authenticate_company_employee!, :unless => :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  # determines the path for students and company employees after signin
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(Student)
+      student_dashboard_path(resource)
+    else
+      super
+    end
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :gender_id, :university_id])

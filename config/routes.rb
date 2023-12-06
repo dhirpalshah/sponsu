@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   # todo: landing page for routes
-  # get("/", {})
+  # get("/", {:controller => "home", :action => "show"})
+  root to: "home#welcome"
+
+  # create student dashboard page
+  # todo: if student hasn't filled out their profile, prompt them to do so
+  get '/student_dashboard/:id', :to => 'students#dashboard', :as => 'student_dashboard'
+
+
   # Routes for the University resource:
 
   # CREATE
