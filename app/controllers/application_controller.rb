@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   skip_forgery_protection
 
+  def configure_company_employee_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :company_id])
 
   def configure_student_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :gender_id, :university_id])
