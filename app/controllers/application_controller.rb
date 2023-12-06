@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   def configure_company_employee_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :company_id])
+  end
 
   def configure_student_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :gender_id, :university_id])
@@ -23,7 +24,6 @@ class ApplicationController < ActionController::Base
     elsif resource_class == Student
       configure_student_permitted_parameters
     end
-
   end
 
 end
