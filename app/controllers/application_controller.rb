@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if resource.is_a?(CompanyEmployee)
       authenticated_company_employee_root_path
+    elsif resource.is_a?(Student)
+      authenticated_student_root_path(resource)
     else
       super
     end

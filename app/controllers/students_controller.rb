@@ -1,21 +1,18 @@
 class StudentsController < ApplicationController
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_student!, :only => [:dashboard]
-  before_action :set_student, :only => [:dashboard]
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, :keys => [:email, :gender_id, :university_id])
+    devise_parameter_sanitizer.permit(:account_update)
+  end
 
   def dashboard
-    # todo: include logic to ensure the student can only access their own dashboard
-    if current_student.id != params[:id].to_i
-      redirect_to('/', :notice => "You can only access your own dashboard.")
-    else
-      # Render the student's dashboard view
-      render({ :template => "students/dashboard" })
-    end
+    @student = current_student
+    @student_email = @student.email
+    render({ :template => "students/dashboard" })
   end
 
   private
      
-  def set_student
-    @student = Student.where({ :id => params[:id] }).at(0)
-    @student_email = @student.email
-  end
 end

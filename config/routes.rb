@@ -26,7 +26,11 @@ Rails.application.routes.draw do
 
   authenticated :company_employee do 
     root to: 'company_employees/employee_portal#dashboard', as: :authenticated_company_employee_root
-  end  
+  end
+
+  authenticated :student do
+    root to: 'students#dashboard', as: :authenticated_student_root
+  end
 
   # todo: landing page for routes
   # get("/", {:controller => "home", :action => "show"})
@@ -34,7 +38,8 @@ Rails.application.routes.draw do
 
   # create student dashboard page
   # todo: if student hasn't filled out their profile, prompt them to do so
-  get '/student_dashboard/:id', :to => 'students#dashboard', :as => 'student_dashboard'
+  get '/student_dashboard', to: 'students#dashboard', as: 'student_dashboard'
+
 
 
   # Routes for the University resource:
