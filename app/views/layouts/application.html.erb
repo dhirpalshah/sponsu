@@ -10,7 +10,19 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  
+<!--NAV BAR BELOW-->
   <body>
+    <nav>
+      <%if !student_signed_in?%>
+        <a href="/">Home</a>
+      <%else%>
+        <%= link_to "Dashboard", student_dashboard_path(current_student) %>
+        <a href="/students/myprofile">My Profile</a>
+        
+        <a href="/students/sign_out">Sign Out</a>
+      <%end%>
+    </nav>
     <%= yield %>
   </body>
 </html>
