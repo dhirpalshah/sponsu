@@ -4,7 +4,7 @@
 #
 #  id                       :integer          not null, primary key
 #  major_field              :string
-#  major_name               :integer
+#  major_name               :string
 #  students_to_majors_count :integer
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null

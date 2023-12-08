@@ -18,7 +18,7 @@
         <a href="/">Home</a>
       <%else%>
         <%= link_to "Dashboard", student_dashboard_path(current_student) %>
-        <a href="/students/myprofile">My Profile</a>
+        <%= link_to "My Profile", my_profile_path(current_student) %>
         
         <a href="/students/sign_out">Sign Out</a>
       <%end%>

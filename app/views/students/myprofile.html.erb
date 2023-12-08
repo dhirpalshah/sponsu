@@ -1,0 +1,41 @@
+<h1>Edit Your Information</h1>
+
+<%= form_for @student, url: student_path(@student), method: :patch do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ethnicity %><br />
+    <%= f.text_field :ethnicity %>
+  </div>
+
+<!--error below we never added the interests column in student!--><!--
+  <div class="field">
+    <%#= f.label :interests %><br />-->
+    <%#= f.collection_select :interest_id, Interest.all, :id, :name %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= f.label :university %><br />
+    <%#= f.collection_select :university_id, University.all, :id, :name %>
+<!--  </div>
+-->
+
+  <div class="field">
+    <%= f.label :majors, "Your Major" %><br />
+    <%= f.collection_select(:major_id, Major.all, :id, :major_name) %>
+  </div>
+
+  <!--<div class="field">-->
+    <%#= f.label :social_media_links, "Social Media Links" %><br />
+    <%#= f.text_field :social_media_links %>
+<!--  </div>
+-->
+  <div class="actions">
+    <%= f.submit "Update Information" %>
+  </div>
+
+<% end %>

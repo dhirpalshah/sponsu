@@ -1,6 +1,6 @@
-<h1>Hi, there you college student... WELCOME TO SPONSU</h1>
+<h1>Welcome to SponsU</h1>
 
-<h2>Sign up</h2>
+<h2>Are you a college student? Sign up:</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -26,7 +26,6 @@
   <div class="field">
     <%= f.label :gender %><br />
     <%= f.collection_select :gender_id, Gender.all, :id, :gender_name %>
-    <%#= f.collection_select :gender_id, Gender.all, :id, :gender_name %>
   </div>
 
   <div class="field">

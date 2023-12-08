@@ -44,9 +44,8 @@
         <% @students.each do |student| %>
           <tr> 
             <td><%= student.name %></td>
-            <!--<td><%#= student.university%></td>--> 
-            <!-- Have to configure Univeristy and Major with their tables --> 
-            
+            <% matching_university = University.where({ :id => student.university_id }).at(0)%>
+            <td><%= matching_university.name%></td>             
             <td><%= student.graduating_year %></td>
             <td><%= student.bio %></td>
             <td><%= student.email %></td>
