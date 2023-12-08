@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_05_043953) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_08_171050) do
   create_table "companies", force: :cascade do |t|
     t.string "company_name"
     t.string "location"
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_05_043953) do
   end
 
   create_table "majors", force: :cascade do |t|
-    t.integer "major_name"
+    t.string "major_name"
     t.string "major_field"
     t.integer "students_to_majors_count"
     t.datetime "created_at", null: false

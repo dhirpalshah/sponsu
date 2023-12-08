@@ -19,6 +19,20 @@ namespace :sample do
     end
   end
 
+  task majors: :environment do
+    if Rails.env.development?
+      Major.destroy_all
+    end
+    csv_text = File.read(Rails.root.join("lib", "csvs", "majors-list.csv"))
+    csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+    csv.each do |row|
+      t = Major.new
+      t.major_name = row["Major"]
+      t.major_field = row["Major_Category"]
+      t.save
+    end
+  end
+
   task genders: :environment do
     if Rails.env.development?
       Gender.destroy_all

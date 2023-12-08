@@ -36,10 +36,15 @@ Rails.application.routes.draw do
   # get("/", {:controller => "home", :action => "show"})
   root to: "home#welcome"
 
+  # needed for student_path helper
+  resources :students, only: [:edit, :update]
+
   # create student dashboard page
   # todo: if student hasn't filled out their profile, prompt them to do so
   get '/student_dashboard', to: 'students#dashboard', as: 'student_dashboard'
 
+  # student profile page
+  get '/my_profile', to: 'students#myprofile', as: 'my_profile'
 
 
   # Routes for the University resource:
