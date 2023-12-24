@@ -8,11 +8,28 @@ class CompanyEmployees::EmployeePortalController < ApplicationController
   end
 
   def dashboard 
-    @students = Student.all
-    @filtered_students = filter_students(params[:student]) if params[:student].present?
+    @students = filter_students(params[:filters]) 
+    @students = search_students(params[:search], @students) 
   end
 
+  def search_students(search, students) 
+    @students = students
+    if @students && search 
+      @students = @students.where("name LIKE ?", "%#{search}%")
+    end 
+
+    @students
+  end 
+
   def filter_students(filters)
-    # @students.where(filters)
+    @students = Student.all
+  
+    if @students && filters
+      @students = @students.where(university_id: filters[:university_id]) if filters[:university_id].present?
+      @students = @students.where(gender_id: filters[:gender_id]) if filters[:gender_id].present?
+      @students = @students.where(ethnicity: filters[:ethnicity]) if filters[:ethnicity].present?
+    end
+
+    @students
   end
 end

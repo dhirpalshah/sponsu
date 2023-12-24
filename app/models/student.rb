@@ -33,6 +33,8 @@
 class Student < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  mount_uploader :profile_pic, PfpUploader
+
   has_many  :student_to_interests, class_name: "StudentToInterest", foreign_key: "student_id", dependent: :destroy
   has_many  :students_to_socials, class_name: "StudentsToSocial", foreign_key: "student_id", dependent: :destroy
   has_many  :student_to_ethnicities, class_name: "StudentToEthnicity", foreign_key: "student_id", dependent: :destroy

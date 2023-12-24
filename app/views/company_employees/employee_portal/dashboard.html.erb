@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Company Employee Dashboard</title>
+  <h1 class = "t-6xl t-black">Company Employee Dashboard</title>
   <!-- Add your stylesheets, meta tags, and other head content here -->
 </head>
-<body>
+<body class = "ml-5">
 
   <header>
-    <h1>Welcome to the Company Employee Dashboard</h1>
+    <h1 class = "p-5">Welcome to the Company Employee Dashboard</h1>
   </header>
 
   <nav>
@@ -21,41 +21,48 @@
   <main>
     <!-- Your main content goes here -->
     <h1> Student Prospects </h1> 
-    <%#= form_with(url: company_employees_login_path, method: :get) do |f| %>
-<!--      <div>
-        <strong>Choose Columns to Filter:</strong>
-        <br>
-        <%#= f.label :name %> -->
-        <%#= f.check_box :name %>
-<!--        -->
-        <%#= f.label :age %>
-        <%#= f.check_box :age %>
-<!--        -->
-        <%#= f.label :grade %>
-        <%#= f.check_box :grade %>
-<!---->
-        <%#= f.submit %>
-<!--      </div>-->
-    <%# end %>
+    <div class = "my-10">
+      <%= form_tag authenticated_company_employee_root_path, method: :get do %>
+        <label for="search">Search:</label> 
+        <%= text_field_tag 'search', params.fetch(:search, '')%>
 
+        <label for="university_id">University:</label>
+        <%= select_tag 'filters[university_id]', options_from_collection_for_select(University.all, 'id', 'name'), prompt: 'Select University' %>
 
-    <table> 
-      <tbody> 
-        <% @students.each do |student| %>
-          <tr> 
-            <td><%= student.name %></td>
-            <% matching_university = University.where({ :id => student.university_id }).at(0)%>
-            <td><%= matching_university.name%></td>             
-            <td><%= student.graduating_year %></td>
-            <td><%= student.bio %></td>
-            <td><%= student.email %></td>
-          </tr> 
-        <% end %> 
-      </tbody>
-    </table> 
-    <p>This is the dashboard content for company employees.</p>
-  </main>
+        <label for="gender_id">Gender:</label>
+        <%= select_tag 'filters[gender_id]', options_from_collection_for_select(Gender.all, 'id', 'gender_name'), prompt: 'Select Gender' %>
 
+        <!-- Upload the necessary ethnicities as IDs -->
+        <!--<label for="ethnicity">Ethnicity:</label>-->
+        <%#= text_field_tag 'filters[ethnicity]', params.dig(:filters, :ethnicity).presence || '' %>
+        
+        <%= submit_tag 'Filter Students' %>
+
+      <% end %>
+    <div> 
+
+    <% students_rows = @students.each_slice(3).to_a %>
+
+    <% students_rows.each do |row| %>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <% row.each do |student| %>
+          <% if student.profile_pic.present? %>
+            <div class="relative bg-image object-fit" style="background-image: url('<%= asset_path('sponsee.png') %>'); background-size: cover; width: 29vw; height: 38vw;">
+              <%= image_tag student.profile_pic.url, class: 'mt-10 rounded-t-lg w-full h-1/4 object-cover' %>
+              <div class="absolute bottom-0 left-0 p-5 w-full px-5 pb-5"> 
+                <h2 class="text-lg text-black font-semibold"><%= student.name %></h2>
+                <p class="text-lg text-black">
+                  <%= Major.find_by(id: student.major_id)&.major_name.presence || 'N/A' %>
+                </p>
+                <p class="text-sm text-black"><%= student.bio.presence || 'N/A' %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </main> 
   <footer>
     <!-- Add footer content if needed -->
   </footer>
