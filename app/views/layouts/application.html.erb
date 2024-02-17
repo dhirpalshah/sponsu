@@ -16,7 +16,9 @@
   <body>
     <nav>
       <%if !student_signed_in?%>
-        <a href="/">Home</a>
+         <%# <a href="/" class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-300 to-orange-0 text-blue-700 font-bold hover:bg-gradient-to-r from-orange-400 to-orange-600">
+          Home
+        </a> %>
       <%else%>
         <%= link_to "Dashboard", student_dashboard_path(current_student) %>
         <%= link_to "My Profile", my_profile_path(current_student) %>

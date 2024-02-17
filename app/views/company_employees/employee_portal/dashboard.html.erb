@@ -1,27 +1,47 @@
 <!-- app/views/company_employees/dashboard.html.erb -->
 <!DOCTYPE html>
 <html>
-<head>
-  <h1 class = "t-6xl t-black">Company Employee Dashboard</title>
-  <!-- Add your stylesheets, meta tags, and other head content here -->
-</head>
-<body class = "ml-5">
 
+<head>
+  <!-- Add your stylesheets, meta tags, and other head content here -->
+  <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="#" class="-m-1.5 p-1.5">
+        <!--<span class="sr-only">Your Company</span>
+        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">-->
+        <a href="/" class="text-sm font-semibold leading-6 text-gray-900">SPO<br>NSU</a>
+      </a>
+    </div>
+    <div class="flex lg:hidden">
+      <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+        <span class="sr-only">Open main menu</span>
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-12">
+      <a class="text-sm font-semibold leading-6 text-gray-900">
+        <a> <%= link_to 'Profile', edit_company_employee_registration_path %> </a>
+        <a> <%= link_to 'Dashboard'%> </a>
+      </a>
+    </div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a class="text-sm font-semibold leading-6 text-gray-900">
+        <a><%= link_to 'Logout', destroy_company_employee_session_path, method: :delete %></a>
+      </a>
+    </div>
+  </nav>
+</head>
+
+<body class = "ml-5">
   <header>
-    <h1 class = "p-5">Welcome to the Company Employee Dashboard</h1>
+    <h1 class = "text-lg font-bold text-center">Welcome to the Company Employee Dashboard</h1>
   </header>
 
-  <nav>
-    <ul>
-      <li><%= link_to 'Profile', edit_company_employee_registration_path %></li>
-      <li><%= link_to 'Logout', destroy_company_employee_session_path, method: :delete %></li>
-    </ul>
-  </nav>
-
   <main>
-    <!-- Your main content goes here -->
-    <h1> Student Prospects </h1> 
-    <div class = "my-10">
+    <h1 class = "p-5 text-lg" > Potential Student Sponsees: </h1> 
+    <div class = "my-5 mx-5">
       <%= form_tag authenticated_company_employee_root_path, method: :get do %>
         <label for="search">Search:</label> 
         <%= text_field_tag 'search', params.fetch(:search, '')%>
@@ -44,11 +64,11 @@
     <% students_rows = @students.each_slice(3).to_a %>
 
     <% students_rows.each do |row| %>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-10">
         <% row.each do |student| %>
           <% if student.profile_pic.present? %>
             <div class="relative bg-image object-fit" style="background-image: url('<%= asset_path('sponsee.png') %>'); background-size: cover; width: 29vw; height: 38vw;">
-              <%= image_tag student.profile_pic.url, class: 'mt-10 rounded-t-lg w-full h-1/4 object-cover' %>
+              <%= image_tag student.profile_pic.url, class: 'mt-10 rounded-t-lg w-full h-3/5 object-cover' %>
               <div class="absolute bottom-0 left-0 p-5 w-full px-5 pb-5"> 
                 <h2 class="text-lg text-black font-semibold"><%= student.name %></h2>
                 <p class="text-lg text-black">

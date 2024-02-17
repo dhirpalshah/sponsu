@@ -59,6 +59,8 @@
   "emmet.includeLanguages": {
     "erb": "html"
   },
+  "ruby.useBundler": true, 
+  "ruby.version": "3.2.1", 
   "[ruby]": {
     "editor.defaultFormatter": "mbessey.vscode-rufo",
     "editor.formatOnSave": false

@@ -1,0 +1,158 @@
+<div class="bg-white h-screen margin-auto">
+  <header class="inset-x-0 top-0 z-50">
+    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="/" class="-m-1.5 p-1.5">
+          <!--<span class="sr-only">Your Company</span>
+          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">-->
+          <a href="/" class="text-sm font-semibold leading-6 text-gray-900">SPO<br>NSU</a>
+        </a>
+      </div>
+      <div class="flex lg:hidden">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="/company_landing" class="text-sm font-semibold leading-6 text-gray-900">Companies</a>
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Students</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </nav>
+    <!--<div class="lg:hidden" role="dialog" aria-modal="true">
+      <div class="fixed inset-0 z-50"></div>
+      <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <div class="flex items-center justify-between">
+          <a href="#" class="-m-1.5 p-1.5">
+            <!<span class="sr-only">Your Company</span>-->
+<!--            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">-->
+            <!--<a href="#" class="text-sm font-semibold leading-6 text-gray-900">SPO<br>NSU</a>
+          </a>
+          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+            <span class="sr-only">Close menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>-->
+<!--        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+            </div>
+            <div class="py-6">
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
+  </header>
+
+  <div class = "flex mx-20 my-15"> 
+    <div class = "w-1/2 p-4 items-center justify-center">
+      <div class = "flex"> 
+        <h2 class = "py-5 text-7xl text-black">
+          This is 
+        </h2> 
+        <img class="object-contain w-auto h-auto" src="<%= image_path('pinkarrow.png') %>" alt="">
+      </div> 
+      <div class = "flex"> 
+        <h2 class = "py-5 text-7xl text-black"> 
+          your 
+        </h2>
+        <h2 class = "py-5 text-7xl text-landingPink"> 
+           {hub}
+        </h2>
+      </div>
+      <img class = "object-contain" src="<%= asset_path('littlefish.png') %>" alt="Description of the image">
+      <p class="text-xl text-black pt-5 pb-10 pl-5 font-semibold"> 
+        Are you a budding business? Don’t worry - we offer packages that help you distribute your content all over campuses at a low cost and packages for you to conduct market research with.
+      </p>
+      <img class = "object-contain" src="<%= asset_path('howto.png') %>" alt="Description of the image">
+      <p class="text-xl text-black pt-5 pt-10 pl-5 font-semibold pb-20"> 
+        Stay tuned for series of tutorials on what the sponsorship world is like, how to successfully market to your target audience, and how you can use SponsU to do just that!
+      </p>
+    </div> 
+
+    <div class="w-1/2 ml-10 items-center justify-center rounded-3xl bg-gradient-to-b from-landingYellow to-white">
+      <div class="flex justify-center mx-20">
+        <div class="w-3/5 top-0 left-0 pl-5 pt-20">
+          <h2 class="text-8xl text-white text-opacity-100"> EXPL </h2>
+          <h2 class="text-8xl text-white text-opacity-90"> ORE </h2> 
+          <h2 class="text-8xl text-white text-opacity-80"> EXPL </h2> 
+          <h2 class="text-8xl text-white text-opacity-70"> ORE </h2> 
+          <h2 class="text-8xl text-white text-opacity-60"> EXPL </h2> 
+          <h2 class="text-8xl text-white text-opacity-50"> ORE </h2>
+          <h2 class="text-8xl text-white text-opacity-40"> EXPL </h2> 
+          <h2 class="text-8xl text-white text-opacity-30"> ORE </h2>
+        </div>
+        <div class="w-2/5 top-0 right-0 pt-20"> 
+          <h2 class="text-center text-3xl text-white bg-landingYellowFade rounded-full p-2 mb-5"> tutorials </h2>
+          <h2 class="text-center text-3xl text-white bg-landingYellowFade rounded-full p-2 mb-5"> resources</h2> 
+          <h2 class="text-center text-3xl text-white bg-landingYellowFade rounded-full p-2 mb-5"> events </h2>
+        </div> 
+      </div> 
+    </div>
+  </div>
+  
+  <div class = "px-20"> 
+    <h2 class = "text-2xl text-black"> 
+      04 -- Connect 
+    </h2>
+    <h2 class = "text-7xl text-black pb-10">
+      Based on your sponsorships
+    </h2>
+    
+    <div class="flex justify-center space-x-4 pb-10">
+      <div class="relative bg-image" style="background-image: url('<%= asset_path('sponsee.png') %>'); background-size: cover; width: 29vw; height: 38vw;">
+        <img src="<%= asset_path('profile1.png') %>" alt="Giphy 1" class="mt-10 rounded-t-lg w-full h-3/5 object-cover">
+        <div class="absolute bottom-0 left-0 p-3 text-white w-full"> 
+          <p class="text-sm text-black px-5 pb-5">
+            <strong>Mavra Jabbar</strong><br>
+            <strong>School:</strong> University of Chicago<br>
+            <strong>Major:</strong> Econ & Data Science<br><br>
+            Drawing from my consulting background and passion for securing impactful brand deals myself, I strive to optimize efficiency and form strategic partnerships. 
+          </p>
+        </div>  
+      </div>
+
+      <div class="relative bg-image" style="background-image: url('<%= asset_path('sponsee.png') %>'); background-size: cover; width: 29vw; height: 38vw;">
+        <img src="<%= asset_path('profile2.png') %>" alt="Giphy 1" class="mt-10 rounded-t-lg w-full h-3/5 object-cover">
+        <div class="absolute bottom-0 left-0 p-3 text-white w-full"> 
+          <p class="text-sm text-black px-5 pb-5">
+            <strong>Iris Hwang</strong><br>
+            <strong>School:</strong> University of Chicago<br>
+            <strong>Major:</strong> CS & Econ <br><br>
+              Iris here! I’m a computer science and economics major at UChicago. Born and raised in Michigan, I’m an avid runner and enjoy playing tennis.
+          </p>
+        </div>  
+      </div>
+
+      <div class="relative bg-image" style="background-image: url('<%= asset_path('sponsee.png') %>'); background-size: cover; width: 29vw; height: 38vw;">
+        <img src="<%= asset_path('profile3.png') %>" alt="Giphy 1" class="mt-10 rounded-t-lg w-full h-3/5 object-cover">
+        <div class="absolute bottom-0 left-0 p-3 text-white w-full"> 
+          <p class="text-sm text-black px-5 pb-5">
+            <strong>Danny Mendoza</strong><br>
+            <strong>School:</strong> University of Chicago<br>
+            <strong>Major:</strong> Anthropology<br><br>
+            Hi everyone! I’m Danny Mendoza, a UChicago student playing on the NCAA Men’s Soccer team. Feel free to reach out about any NIL deals. 
+          </p>
+        </div>  
+      </div>
+    </div>
+  </div>
+
+  <div class = "flex justify-end pr-20 pb-20"> 
+      <a href="mailto:info@sponsu.org" class="text-center text-2xl text-white bg-landingYellowFade rounded-full p-2">See More</a>
+  </div> 
+</div>

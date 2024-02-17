@@ -5,6 +5,7 @@ pid="$parentdir/tmp/pids/server.pid"
 if [ -f $pid ]; then
   rm $pid
 fi
-fuser -k -n tcp 3000
+# fuser -k -n tcp 3000
+# removed for MacOS compatability issues
 rails server -b 0.0.0.0
 exec foreman start -f Procfile.dev "$@"
