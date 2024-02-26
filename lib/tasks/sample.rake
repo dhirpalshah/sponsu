@@ -1,6 +1,14 @@
 require "csv"
 
 namespace :sample do
+
+  task :clean_students => :environment do
+    if Rails.env.development?
+      Student.destroy_all
+    end
+    Student.delete_all
+    puts "Sample data has been removed from the students table."
+  end
   
   desc "TODO"
   task universities: :environment do
